@@ -1,0 +1,20 @@
+class Node:
+    def __init__(self, L, R, n):
+        self.left = L
+        self.right = R
+        self.value = n
+def tree_by_levels(node):
+    if node is None:
+        return []
+    result = []
+    saver = [node]
+    
+    while saver:
+        node = saver.pop(0)
+        result.append(node.value)
+        if node.left:
+            saver.append(node.left)
+        if node.right:
+            saver.append(node.right)
+    
+    return result
